@@ -13,6 +13,7 @@
     <link href="stylesheets/justified-nav.css" rel="stylesheet">
 	<link href="stylesheets/logo.css" rel="stylesheet">
 	<link href="stylesheets/kayma.css" rel="stylesheet">
+	<link href="stylesheets/pages.css"  rel="stylesheet">
     <script src="javascripts/jquery-1.11.0.min.js"></script>
     <script src="javascripts/bootstrap.min.js"></script>
 	
@@ -76,10 +77,7 @@
    <section id="sayfa" class="giris-bolumu">
         <div class="container">
 			<div>
-				<ul class="tabs">
-					<li><a href="#user-site" class="selected">User or organization site</a></li>
-					<li><a href="#project-site">Project site</a></li>
-				</ul>
+				
             </div>
         </div>
     </section>
@@ -90,6 +88,29 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Eğitim</h1>
+					<ul class="tabs">
+					<li><a href="#user-site" class="selected">User or organization site</a></li>
+					<li><a href="#project-site">Project site</a></li>
+					
+					 <ul id="user-site" class="tutorial-list wrapper active">
+    <li id="create-repo-step" class="image-right">
+      <h4>Create a repository</h4>
+      <p>Head over to <a href="https://github.com">GitHub</a> and <a data-proofer-ignore="true" href="https://github.com/new">create a new repository</a> named <em>username</em>.github.io, where <em>username</em> is your username (or organization name) on GitHub.</p>
+
+      <p class="details">If the first part of the repository doesn’t exactly match your username, it won’t work, so make sure to get it right.</p>
+    </li>
+
+    <li class="question">
+      <h4>What git client are you using?</h4>
+      <ul class="tabs">
+        <li><a id="option-terminal" href="#terminal-step-1" class="selected">A terminal</a></li>
+        <li><a id="option-ghfw" href="#setup-in-desktop">GitHub for Windows</a></li>
+        <li><a id="option-ghfm" href="#setup-in-desktop">GitHub for Mac</a></li>
+        <li><a id="option-newuser-w" href="#new-user-step-1">I don't know</a></li>
+      </ul>
+    </li>
+
+				</ul>
                 </div>
             </div>
         </div>
