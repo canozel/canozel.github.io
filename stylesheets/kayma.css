@@ -26,7 +26,8 @@ html {
 
 .giris-bolumu {
     height: 100%;
-	background-image: url(http://images.teskilat.akparti.org.tr/uploads/promos/samsun.jpg);
+	background-image: url(http://images.teskilat.akparti.org.tr/uploads/promos/samsun.jpg) top right no-repeat;
+	background-position:fixed;
     padding-top: 150px;
     text-align: center;
 }
@@ -39,8 +40,8 @@ html {
 }
 
 .yayinlar-bolumu {
-    height: 100%;
-    background: #fff;
+    height: 150%;
+    background-image: url(http://bgfons.com/upload/paper_texture327.jpg);
     padding-top: 150px;
     text-align: center;
 }
