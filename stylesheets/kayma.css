@@ -26,8 +26,9 @@ html {
 
 .giris-bolumu {
     height: 100%;
-    background: #fff;
-    padding-top: 150px;
+  
+	background-image: url(http://www.aep.gov.tr/wp-content/uploads/2013/10/4.jpg)
+   
     text-align: center;
 }
 
