@@ -26,7 +26,7 @@ html {
 
 .giris-bolumu {
     height: 100%;
-    background: #fff;
+	background-image: url(http://images.teskilat.akparti.org.tr/uploads/promos/samsun.jpg);
     padding-top: 150px;
     text-align: center;
 }
@@ -47,31 +47,31 @@ html {
 
 .hizmetler-bolumu {
     height: 100%;
-    background: #fff;
+    background: #eee;
     padding-top: 150px;
     text-align: center;
 }
 .projeler-bolumu {
     height: 100%;
-    background: #eee;
+    background: #fff;
     padding-top: 150px;
     text-align: center;
 }
 .yonetim-bolumu {
     height: 100%;
-    background: #fff;
+    background: #eee;
     padding-top: 150px;
     text-align: center;
 }
 .hakkimizda-bolumu{
     height: 100%;
-    background: #eee;
+    background: #fff;
     padding-top: 150px;
     text-align: center;
 }
 .iletisim-bolumu {
     height: 100%;
-    background: #fff;
+    background: #eee;
     padding-top: 150px;
     text-align: center;
 }
