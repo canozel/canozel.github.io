@@ -26,7 +26,7 @@ html {
 
 .giris-bolumu {
     height: 100%;
-	background-image: url(http://images.teskilat.akparti.org.tr/uploads/promos/samsun.jpg) top right no-repeat;
+	background-image: url(http://images.teskilat.akparti.org.tr/uploads/promos/samsun.jpg);
 	background-position:fixed;
     padding-top: 150px;
     text-align: center;
