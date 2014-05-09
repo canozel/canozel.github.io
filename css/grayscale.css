@@ -252,9 +252,6 @@ background-color: #c06;
 
 }
 .btn2 {
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
   position: relative;
   cursor: pointer;
   width: 140px;
