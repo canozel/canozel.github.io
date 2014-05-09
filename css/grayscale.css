@@ -243,14 +243,13 @@ a:focus {
 }
 
 .circle{
-width:25px;
-height:25px;
-border-radius:50px;
-font-size:20px;
-color:#fff;
-line-height:50px;
-text-align:center;
-background:#fcfcfc;
+background-color: #c06;
+ border: 3px solid #333;
+ height: 150px;
+ width: 150px;
+ -moz-border-radius:75px;
+ -webkit-border-radius: 75px;
+
 }
 .download-section {
     width: 100%;
