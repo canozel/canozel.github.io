@@ -2,6 +2,7 @@
 layout: post
 title: "Başlangıç"
 date: 2015-03-28T23:06:47+02:00
+comments: true
 ---
 
 # İlk Yazım
