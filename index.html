@@ -1,144 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: post-index
+title: Slhcnzl 
+description: "Describe this nonsense."
+tags: [Jekyll, theme, themes, responsive, blog, modern]
+comments: false
+image:
+  feature: abstract-1.jpg
+---
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+{% for post in paginator.posts %}
+<article class="hentry">
+  <header>
+    {% if post.image.feature %}
+      <div class="entry-image-index">
+        <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}"><img src="{{ site.url }}/images/{{ post.image.feature }}" alt="{{ post.title }}"></a>
+      </div><!-- /.entry-image -->
+    {% endif %}
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="{{ post.date | date_to_xmlschema }}"><a href="{{ site.url }}{{ post.url }}">{{ post.date | date: "%B %d, %Y" }}</a></time></span><span class="author vcard"><span class="fn"><a href="{{ site.url }}/about/" title="About {{ site.owner.name }}">{{ site.owner.name }}</a></span></span>
+      {% if site.reading_time %}
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        {% assign readtime = post.content | number_of_words | divided_by:site.words_per_minute %}
+        Reading time ~{% if readtime <= 1 %}1 minute{% else %}{{ readtime }} minutes{% endif %}
+      </span><!-- /.entry-reading-time -->
+      {% endif %}
+    </div><!-- /.entry-meta -->
+    {% if post.link %}
+      <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" class="permalink" rel="bookmark" title="{{ post.title }}"><i class="fa fa-bookmark"></i></a> <a href="{{ post.link }}">{{ post.title }}</a></h1>
+    {% else %}
+      <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a></h1>
+    {% endif %}
+  </header>
+  <div class="entry-content">
+    {{ post.content }}
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+{% endfor %}
 
-    <title>Kargerder</title>
-
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-    <!-- Fonts -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-
-    <!-- Custom Theme CSS -->
-    <link href="css/grayscale.css" rel="stylesheet">
-
-</head>
-
-<body id="sayfa" data-spy="scroll" data-target=".navbar-custom">
-
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="giris.html">
-                      K<span class="light">ARGE</span>DER
-                </a>
-            </div>
-
-            
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-
-                    <li class="hidden">
-                        <a href="#sayfa"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#hakkimizda">Hakkımızda</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#yayinlar">Yayınlar</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#iletisim">İletişim</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <section class="intro">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading">KARGEDER</h1>
-                        <p class="intro-text">Karadeniz Araştırma ve Geliştirme Derneği</p>
-                        <div class="page-scroll">
-                            <a href="#hakkimizda" class="btn btn-circle">
-                                <i class="fa fa-angle-double-down animated"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="hakkimizda" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 page-scroll">
-                <h2>Hakkında</h2>
-                <p>Dernek, bölgenin kalkınmasına yönelik faaliyetler yaparak, bu alanda yapılmış yerel ve özel çalışmaların ortaya çıkarılması, için kurulmuştur.</p>
-				<h3>Açıklama</h3>
-				<p>Dernek, bölgenin kalkınmasına yönelik faaliyetler yaparak, bu alanda yapılmış yerel ve özel çalışmaların ortaya çıkarılması, bölgenin inovasyon kapasitesini artırmayı sağlamak için üniversite, sanayi, kamu ve STK işbirliği çalışmaları yürütmek ve uygulama yapmak, bu alanda çalışan kişiler için bir başvuru derneği olmasına sağlamak amacı ile kurulmuştur.</p>
-				<div class="col-xs-6 col-sm-4"><a href="#"</a><div class="btn2 btn-blob">EĞİTİM</div></div>		   
-				<div class="col-xs-6 col-sm-4"><a href="#"</a><div class="btn2 btn-blob">FOTOĞRAF</div></div>		   
-				<div class="col-xs-6 col-sm-4"><a href="#"</a><div class="btn2 btn-blob">PROJELER</div></div>
-			</div>
-		</div>
-		
-    </section>
-
-    <section id="yayinlar" class="content-section text-center">
-        <div class="download-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Yayınlar</h2>
-                    <div class="row placeholders">
-					
-                    <a href="#iletisim" class="btn btn-default btn-lg">...</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="iletisim" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>İletişim</h2>
-                <p>Bize isteklerinizi veya önerilerinizi hiç çekinmeden mesaj yazabilirsiniz.</p>
-                <p>mailto:kkargeder@gmail.com</p>
-                <ul class="list-inline banner-social-buttons">
-                    <li><a href="https://www.facebook.com/pages/Karadeniz-Araştırma-ve-Geliştirme-Derneği-Kargeder/1405484696380227" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">FACEBOOK</span></a>
-                    </li>
-                    <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                    </li>
-                    <li><a href="#" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <div id="map">
-	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2996.3896816332585!2d36.31555699999999!3d41.322139000000035!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x408879d1d4b3193d%3A0xcb4dc07585793e2e!2zMTkgTWF5xLFzIMOcbml2ZXJzaXRlc2kgQXRha3VtIEthbXDDvHPDvA!5e0!3m2!1str!2s!4v1399036177880" width="1900" height="450" frameborder="0" style="border:0"></iframe></div>
-	
-    <!-- Core JavaScript Files -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-    <!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
-	<script type="text/javascript">
-$(document).ready(function() {
-  $('.btn-blob').click(function() {
-    $(this).toggleClass('blob');
-  });
-});
-</script>
-    <!-- Custom Theme JavaScript -->
-    <script src="js/grayscale.js"></script>
-
-</body>
-
-</html>
+<div class="pagination">
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1 %}
+      <a href="{{ site.url }}" class="btn">Önceki</a>
+    {% else %}
+      <a href="{{ site.url }}/page{{ paginator.Önceki_page }}" class="btn">Önceki</a>
+    {% endif %}
+  {% else %}
+    Önceki
+  {% endif %}
+  <ul class="inline-list">
+    <li>
+      {% if paginator.page == 1 %}
+        <span class="current-page">1</span>
+      {% else %}
+        <a href="{{ site.url }}">1</a>
+      {% endif %}
+    </li>
+    {% for count in (2..paginator.total_pages) %}
+      <li>
+        {% if count == paginator.page %}
+          <span class="current-page">{{ count }}</span>
+        {% else %}
+          <a href="{{ site.url }}/page{{ count }}">{{ count }}</a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  {% if paginator.next_page %}
+    <a href="{{ site.url }}/page{{ paginator.next_page }}" class="btn">Sonraki</a>
+  {% else %}
+    Sonraki
+  {% endif %}
+</div><!-- /.pagination -->

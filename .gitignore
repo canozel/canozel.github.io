@@ -1,0 +1,6 @@
+.*.swp
+.*.swo
+*~
+_site/
+_archive/
+_/
