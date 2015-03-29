@@ -6,7 +6,6 @@ comments: true
 image: 
   feature: abstract-3.jpg
   disable: false
-modified: 2015-03-29
 ---
 
 
