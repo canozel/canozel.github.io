@@ -1,11 +1,12 @@
 ---
 layout: post
-title: "Başlangıç"
+title: "İlk Yazım"
 date: 2015-03-28T23:06:47+02:00
 comments: true
+image: 
+  feature: abstract-3.jpg
 ---
 
-# İlk Yazım
 
 Bu yazı daha çok deneme yazısı niteliğindedir. Uzun zamandır bir blog açmayı planlıyordum kısmet bugüneymiş. Hakkımdaki bilgileri [buraya](about/index.html) yazdım. 
 
