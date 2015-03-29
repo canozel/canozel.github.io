@@ -65,7 +65,7 @@
 
 		},
 		_config : function() {
-			this.open = false;
+			this.open = true;
 			this.$trigger = this.$el.children( '.dl-trigger' );
 			this.$menu = this.$el.children( 'ul.dl-menu' );
 			this.$menuitems = this.$menu.find( 'li:not(.dl-back)' );
