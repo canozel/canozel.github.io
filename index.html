@@ -9,26 +9,68 @@ image:
 ---
 
 {% for post in paginator.posts %}
-<article class="hentry">
-  <header>
-    {% if post.image.feature and post.image.disable %}
-      <div class="entry-image-index">
-        <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}"><img src="{{ site.url }}/images/{{ post.image.feature }}" alt="{{ post.title }}"></a>
-      </div><!-- /.entry-image -->
-    {% endif %}
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="{{ post.date | date_to_xmlschema }}"><a href="{{ site.url }}{{ post.url }}">{{ post.date | date: "%B %d, %Y" }}</a></time></span><span class="author vcard"><span class="fn"><a href="{{ site.url }}/about/" title="About {{ site.owner.name }}">{{ site.owner.name }}</a></span></span>
-    </div><!-- /.entry-meta -->
-    {% if post.link %}
-      <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" class="permalink" rel="bookmark" title="{{ post.title }}"><i class="fa fa-bookmark"></i></a> <a href="{{ post.link }}">{{ post.title }}</a></h1>
-    {% else %}
-      <h1 class="entry-title"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a></h1>
-    {% endif %}
-  </header>
-  <div class="entry-content">
-    {{ post.content }}
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
+  <article class="hentry">
+    <header>
+      {% if post.image.feature and post.image.disable %}
+        <div class="entry-image-index">
+          <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
+            <img src="{{ site.url }}/images/{{ post.image.feature }}" alt="{{ post.title }}">
+          </a>
+        </div><!-- /.entry-image -->
+      {% endif %}
+      
+      <div class="entry-meta">
+        <span class="entry-date date published updated">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            <a href="{{ site.url }}{{ post.url }}">
+              {{ post.date | date: "%-d" }}
+              {% assign m = post.date | date: "%-m" %}
+                    {% case m %}
+                      {% when '1' %}Ocak
+                      {% when '2' %}Şubat
+                      {% when '3' %}Mart
+                      {% when '4' %}Nisan
+                      {% when '5' %}Mayıs
+                      {% when '6' %}Haziran
+                      {% when '7' %}Temmuz
+                      {% when '8' %}Ağustos
+                      {% when '9' %}Eylül
+                      {% when '10' %}Ekim
+                      {% when '11' %}Kasım
+                      {% when '12' %}Aralık
+                   {% endcase %}
+              {{ post.date | date: "%Y" }}
+            </a>
+          </time>
+        </span>
+        <span class="author vcard">
+          <span class="fn">
+            <a href="{{ site.url }}/about/" title="About {{ site.owner.name }}">
+              {{ site.owner.name }}
+            </a>
+          </span>
+        </span>
+      </div><!-- /.entry-meta -->
+
+      {% if post.link %}
+        <h1 class="entry-title">
+          <a href="{{ site.url }}{{ post.url }}" class="permalink" rel="bookmark" title="{{ post.title }}">
+            <i class="fa fa-bookmark"></i>
+          </a> 
+          <a href="{{ post.link }}">{{ post.title }}</a>
+        </h1>
+      {% else %}
+        <h1 class="entry-title">
+          <a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">
+            {{ post.title }}
+          </a>
+        </h1> 
+      {% endif %}
+    </header>
+    <div class="entry-content">
+      {{ post.content }}
+    </div><!-- /.entry-content -->
+  </article><!-- /.hentry -->
 {% endfor %}
 
 <div class="pagination">
