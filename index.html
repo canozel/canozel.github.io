@@ -45,7 +45,7 @@ image:
         </span>
         <span class="author vcard">
           <span class="fn">
-            <a href="{{ site.url }}/about/" title="About {{ site.owner.name }}">
+            <a href="{{ site.url }}/hakkimda/" title="About {{ site.owner.name }}">
               {{ site.owner.name }}
             </a>
           </span>
@@ -68,10 +68,23 @@ image:
       {% endif %}
     </header>
     <div class="entry-content">
-      {{ post.content }}
+      {{ post.content | strip_md | truncate:150 }}
+      
+      {% if post.content | size > 150 %}
+        <h1 class="entry-title" >
+          <a href="{{ site.url }}{{ post.url }}" rel="bookmark" itemprop="url">
+            <strong>Devamı...</strong>
+          </a>
+        </h1> 
+      {% endif %}
+
     </div><!-- /.entry-content -->
+
+    
   </article><!-- /.hentry -->
 {% endfor %}
+
+
 
 <div class="pagination">
   {% if paginator.previous_page %}
