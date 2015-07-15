@@ -3,6 +3,7 @@ layout: post
 title: "İlk Yazım"
 date: 2015-03-28T23:06:47+02:00
 comments: true
+tag: deneme
 image: 
   feature: abstract-3.jpg
   disable: false
