@@ -1,6 +1,6 @@
 title:            "Kişisel Web Günlüğüm"
 description:      ""
-disqus_shortname: sssssas
+disqus_shortname: slhcnzl
 reading_time:     true
 words_per_minute: 200
 # Your site's domain goes here (eg: //mmistakes.github.io, http://mademistakes.com, etc)
@@ -16,9 +16,9 @@ owner:
   # Social networking links used in footer. Update and remove as you like.
   twitter:        
   facebook:       
-  github:         "slhcnzl"
+  github:         "https://github.com/slhcnzl"
   stackexchange:  
-  linkedin:       
+  linkedin:       "https://tr.linkedin.com/pub/salih-can-özel/93/156/975"
   instagram:      
   flickr:         
   tumblr:         
@@ -37,7 +37,7 @@ bing_verify:
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Europe/Istanbul
 future:      true
-highlighter: pygments
+highlighter: maruku
 markdown:    kramdown
 gems:
   - jekyll-sitemap

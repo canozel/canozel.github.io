@@ -10,7 +10,7 @@ image:
 ---
 
 
-Bu yazı daha çok deneme yazısı niteliğindedir. Uzun zamandır bir blog açmayı planlıyordum kısmet bugüneymiş. Hakkımdaki bilgileri [buraya](hakkimda) yazdım. 
+Bu yazı daha çok deneme yazısı niteliğindedir. Uzun zamandır bir blog açmayı planlıyordum kısmet bugüneymiş. Hakkımdaki bilgileri [buraya](/hakkimda) yazdım. 
 
 Blogum da paylaşmayı düşündüğüm başlıklar :
 
