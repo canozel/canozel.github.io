@@ -1,6 +1,8 @@
 .*.swp
 .*.swo
 *~
+.idea/
+*.sublime-workspace
+Thumbs.db
 _site/
 _archive/
-_/
