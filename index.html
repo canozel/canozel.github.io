@@ -1,122 +1,30 @@
----
-layout: post-index
-title: canozel
-description: "Describe this nonsense."
-tags: [Jekyll, theme, themes, responsive, blog, modern]
-comments: false
-image:
-  feature: abstract-1.jpg
----
-
-{% for post in paginator.posts %}
-  <article class="hentry">
-    <header>
-      {% if post.image.feature and post.image.show %}
-        <div class="entry-image-index">
-          <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">
-            <img src="{{ site.url }}/images/{{ post.image.feature }}" alt="{{ post.title }}">
-          </a>
-        </div><!-- /.entry-image -->
-      {% endif %}
-      
-      <div class="entry-meta">
-        <span class="entry-date date published updated">
-          <time datetime="{{ post.date | date_to_xmlschema }}">
-            <a href="{{ site.url }}{{ post.url }}">
-              {{ post.date | date: "%-d" }}
-              {% assign m = post.date | date: "%-m" %}
-                    {% case m %}
-                      {% when '1' %}Ocak
-                      {% when '2' %}Şubat
-                      {% when '3' %}Mart
-                      {% when '4' %}Nisan
-                      {% when '5' %}Mayıs
-                      {% when '6' %}Haziran
-                      {% when '7' %}Temmuz
-                      {% when '8' %}Ağustos
-                      {% when '9' %}Eylül
-                      {% when '10' %}Ekim
-                      {% when '11' %}Kasım
-                      {% when '12' %}Aralık
-                   {% endcase %}
-              {{ post.date | date: "%Y" }}
-            </a>
-          </time>
-        </span>
-        <span class="author vcard">
-          <span class="fn">
-            <a href="{{ site.url }}/hakkimda/" title="About {{ site.owner.name }}">
-              {{ site.owner.name }}
-            </a>
-          </span>
-        </span>
-      </div><!-- /.entry-meta -->
-
-      {% if post.link %}
-        <h1 class="entry-title">
-          <a href="{{ site.url }}{{ post.url }}" class="permalink" rel="bookmark" title="{{ post.title }}">
-            <i class="fa fa-bookmark"></i>
-          </a> 
-          <a href="{{ post.link }}">{{ post.title }}</a>
-        </h1>
-      {% else %}
-        <h1 class="entry-title">
-          <a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">
-            {{ post.title }}
-          </a>
-        </h1> 
-      {% endif %}
-    </header>
-    <div class="entry-content">
-      {{ post.content | strip_md | truncate:150 }}
-      
-      {% if post.content | size > 150 %}
-        <h1 class="entry-title" >
-          <a href="{{ site.url }}{{ post.url }}" rel="bookmark" itemprop="url">
-            <strong>Devamı...</strong>
-          </a>
-        </h1> 
-      {% endif %}
-
-    </div><!-- /.entry-content -->
-
-    
-  </article><!-- /.hentry -->
-{% endfor %}
-
-
-
-<div class="pagination">
-  {% if paginator.previous_page %}
-    {% if paginator.previous_page == 1 %}
-      <a href="{{ site.url }}" class="btn">Önceki</a>
-    {% else %}
-      <a href="{{ site.url }}/page{{ paginator.Önceki_page }}" class="btn">Önceki</a>
-    {% endif %}
-  {% else %}
-    Önceki
-  {% endif %}
-  <ul class="inline-list">
-    <li>
-      {% if paginator.page == 1 %}
-        <span class="current-page">1</span>
-      {% else %}
-        <a href="{{ site.url }}">1</a>
-      {% endif %}
-    </li>
-    {% for count in (2..paginator.total_pages) %}
-      <li>
-        {% if count == paginator.page %}
-          <span class="current-page">{{ count }}</span>
-        {% else %}
-          <a href="{{ site.url }}/page{{ count }}">{{ count }}</a>
-        {% endif %}
-      </li>
-    {% endfor %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>Salih Can Özel - Yazılımcı & Gezgin</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="/">Ana Sayfa</a>
+    <a href="/posts/">Yazılar</a>
+    <a href="/projects/">Projeler</a>
+    <a href="/travel/">Geziler</a>
+    <a href="/hakkimda/">Hakkımda</a>
+  </nav>
+</header>
+<main>
+  <h1>Merhaba, ben Salih Can Özel</h1>
+  <p>Yazılım geliştiricisi ve gezginim. Kodlama ve seyahat notlarımı burada paylaşıyorum.</p>
+  <h2>Son Yazılar</h2>
+  <ul>
+    <li><a href="posts/ilk-yazim.html">İlk Yazım</a> <small>28 Mart 2015</small></li>
   </ul>
-  {% if paginator.next_page %}
-    <a href="{{ site.url }}/page{{ paginator.next_page }}" class="btn">Sonraki</a>
-  {% else %}
-    Sonraki
-  {% endif %}
-</div><!-- /.pagination -->
+</main>
+<footer>
+  &copy; 2015 Salih Can Özel
+</footer>
+</body>
+</html>

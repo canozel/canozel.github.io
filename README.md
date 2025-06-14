@@ -1,26 +1,5 @@
-# Personal Site built with Jekyll and Octopress
+# Personal Site
 
-This repository hosts the source of my personal blog powered by **Jekyll** with the **Octopress** framework. Here I share travel stories, coding tutorials and showcase some of my applications.
+This repository contains my minimal static website. It hosts notes about programming and travel.
 
-## Install Dependencies
-
-Use Bundler and npm to fetch the Ruby and Node packages required by the site:
-
-```bash
-bundle install
-npm install
-```
-
-## Local Development
-
-Run the Jekyll server to build the site and watch for changes:
-
-```bash
-jekyll serve
-```
-
-The site will be available at `http://localhost:4000` by default.
-
-## Deploy to GitHub Pages
-
-Commit your changes and push them to the GitHub repository. GitHub Pages will automatically build the site and publish it live.
+The site uses plain HTML and CSS and does not rely on Jekyll or other build tools. Simply edit the HTML files and push changes to deploy on GitHub Pages.
