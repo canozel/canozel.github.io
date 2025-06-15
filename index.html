@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="utf-8">
-<title>Salih Can Özel - Yazılımcı & Gezgin</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salih Can Özel - Yazılımcı & Gezgin</title>
+    
+    <!-- Ubuntu Mono Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- TypeIt CDN -->
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    <link rel="stylesheet" href="css/terminal.css">
 </head>
 <body>
-<header>
-  <nav>
-    <a href="/">Ana Sayfa</a>
-    <a href="/posts/">Yazılar</a>
-    <a href="/projects/">Projeler</a>
-    <a href="/travel/">Geziler</a>
-    <a href="/hakkimda/">Hakkımda</a>
-  </nav>
-</header>
-<main>
-  <h1>Merhaba, ben Salih Can Özel</h1>
-  <p>Yazılım geliştiricisi ve gezginim. Kodlama ve seyahat notlarımı burada paylaşıyorum.</p>
-  <h2>Son Yazılar</h2>
-  <ul>
-    <li><a href="posts/ilk-yazim.html">İlk Yazım</a> <small>28 Mart 2015</small></li>
-  </ul>
-</main>
-<footer>
-  &copy; 2015 Salih Can Özel
-</footer>
+    <div class="window">
+        <div id="titlebar">
+            <div class="window-controls">
+                <div class="window-control close"></div>
+                <div class="window-control minimize"></div>
+                <div class="window-control maximize"></div>
+            </div>
+            <div class="window-title">Terminal</div>
+        </div>
+        <div id="terminal">
+            <div class="prompt-line" id="line1">
+                <span class="username">canozel</span><span class="prompt">@</span><span class="hostname">ubuntu</span><span class="prompt">:</span><span class="path">~</span><span class="prompt">$ </span><span id="cmd1"></span>
+            </div>
+            <div id="out1" style="display:none;"></div>
+            <div class="prompt-line" id="line2" style="display:none;">
+                <span class="username">canozel</span><span class="prompt">@</span><span class="hostname">ubuntu</span><span class="prompt">:</span><span class="path">~</span><span class="prompt">$ </span><span id="cmd2"></span>
+            </div>
+            <div id="out2" style="display:none;"></div>
+            <div class="prompt-line" id="line3" style="display:none;">
+                <span class="username">canozel</span><span class="prompt">@</span><span class="hostname">ubuntu</span><span class="prompt">:</span><span class="path">~</span><span class="prompt">$ </span><span id="cmd3"></span>
+            </div>
+            <div id="out3" style="display:none;"></div>
+            <div class="prompt-line" id="line4" style="display:none;">
+                <span class="username">canozel</span><span class="prompt">@</span><span class="hostname">ubuntu</span><span class="prompt">:</span><span class="path">~</span><span class="prompt">$ </span><span id="cmd4"></span>
+            </div>
+            <div id="out4" style="display:none;"></div>
+            <div class="prompt-line" id="line5" style="display:none;">
+                <span class="username">canozel</span><span class="prompt">@</span><span class="hostname">ubuntu</span><span class="prompt">:</span><span class="path">~</span><span class="prompt">$ </span><span id="cmd5"></span>
+            </div>
+            <div id="out5" style="display:none;"></div>
+            <div class="prompt-line" id="final-line" style="display:none;">
+                <span class="username">canozel</span><span class="prompt">@</span><span class="hostname">ubuntu</span><span class="prompt">:</span><span class="path">~</span><span class="prompt">$ </span>
+            </div>
+        </div>
+    </div>
+    <script src="js/terminal.js"></script>
 </body>
 </html>

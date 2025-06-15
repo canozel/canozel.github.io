@@ -1,0 +1,183 @@
+body {
+    background: #1E1E1E;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Ubuntu Mono', monospace;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.window {
+    border-radius: 6px;
+    background: #1E1E1E;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    height: 100%;
+    max-height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+}
+
+#titlebar {
+    height: 30px;
+    border-radius: 6px 6px 0 0;
+    background: #1E1E1E;
+    border-bottom: 2px solid #5243AA;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.window-control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.close { background: #FF5F56; }
+.minimize { background: #FFBD2E; }
+.maximize { background: #27CA3F; }
+
+.window-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #C9C9C9;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#terminal {
+    padding: 2rem;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    color: #FFFFFF;
+    background: #300A24;
+    flex: 1;
+    overflow-y: auto;
+    line-height: 1.6;
+}
+
+.prompt {
+    color: #8AE234;
+    font-weight: bold;
+}
+
+.username {
+    color: #8AE234;
+    font-weight: bold;
+}
+
+.hostname {
+    color: #8AE234;
+    font-weight: bold;
+}
+
+.path {
+    color: #729FCF;
+    font-weight: bold;
+}
+
+.command {
+    color: #FFFFFF;
+}
+
+.output {
+    color: #D3D7CF;
+}
+
+.line {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+#auto {
+    white-space: pre-wrap;
+}
+
+.cursor {
+    background: #FFFFFF;
+    animation: blink 1s infinite;
+    width: 8px;
+    height: 16px;
+    display: inline-block;
+    margin-left: 2px;
+    vertical-align: baseline;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+a {
+    color: #6CB6FF;
+    text-decoration: none;
+}
+a:hover {
+    color: #8CCFFF;
+    text-decoration: underline;
+}
+
+/* Encouragement system styles */
+.hint {
+    color: #FFD700;
+    font-style: italic;
+    margin: 0.5rem 0;
+    opacity: 0.8;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #FFD700; }
+    to { text-shadow: 0 0 10px #FFD700, 0 0 15px #FFD700; }
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Interactive prompt hover effect */
+#final-line:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    padding: 2px 4px;
+    margin: -2px -4px;
+}
+
+/* Typing indicator */
+.typing-indicator {
+    color: #8AE234;
+    animation: blink 1s infinite;
+}
+
+/* Command suggestion popup */
+.command-suggestion {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #5243AA;
+    border-radius: 4px;
+    padding: 0.5rem;
+    color: #A8D5A2;
+    font-size: 12px;
+    z-index: 1000;
+    max-width: 200px;
+}
+
+/* Cursor enhanced effects */
+.cursor.active {
+    animation: blink 0.5s infinite, scale 2s ease-in-out infinite;
+}
+
+@keyframes scale {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
