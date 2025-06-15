@@ -83,7 +83,7 @@ class TerminalSimulator {
                 lineId: 'line3',
                 outputId: 'out3',
                 command: 'cat about',
-                output: 'Backend, frontend, DevOps and mobile development experience...<br>My passion for code, world travels and vision for the future are here.',
+                output: 'Backend, frontend, DevOps and mobile development experience...<br>Passion for code, world travels and vision for the future.<br><br><a href="https://www.linkedin.com/in/canozell/" target="_blank">LinkedIn</a> | <a href="mailto:salih@canozel.tr">salih@canozel.tr</a> | <a href="https://github.com/canozel" target="_blank">GitHub</a>',
                 delay: 1000
             },
             {
