@@ -125,7 +125,6 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Encouragement system styles */
 .hint {
     color: #FFD700;
     font-style: italic;
@@ -145,7 +144,6 @@ a:hover {
     100% { opacity: 1; }
 }
 
-/* Interactive prompt hover effect */
 #final-line:hover {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 4px;
@@ -153,13 +151,11 @@ a:hover {
     margin: -2px -4px;
 }
 
-/* Typing indicator */
 .typing-indicator {
     color: #8AE234;
     animation: blink 1s infinite;
 }
 
-/* Command suggestion popup */
 .command-suggestion {
     position: absolute;
     background: rgba(0, 0, 0, 0.9);
@@ -172,7 +168,6 @@ a:hover {
     max-width: 200px;
 }
 
-/* Cursor enhanced effects */
 .cursor.active {
     animation: blink 0.5s infinite, scale 2s ease-in-out infinite;
 }
@@ -180,4 +175,33 @@ a:hover {
 @keyframes scale {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.1); }
+}
+
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media print {
+    * {
+        display: none !important;
+    }
+    body::after {
+        content: "Bu sayfa yazdırılamaz!";
+        display: block !important;
+        font-size: 24px;
+        text-align: center;
+        margin-top: 50vh;
+    }
+}
+
+::selection {
+    background: transparent;
+}
+::-moz-selection {
+    background: transparent;
 }

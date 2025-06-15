@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
-    <meta charset="UTF-8">
+<head>    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, notranslate">
+    <meta name="description" content="Salih Can Özel - Portfolio">
+    <meta property="og:title" content="Salih Can Özel">
+    <meta property="og:description" content="Portfolio">
+    <meta name="referrer" content="no-referrer">
     <title>Salih Can Özel - Yazılımcı & Gezgin</title>
-    
-    <!-- Ubuntu Mono Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <!-- TypeIt CDN -->
     <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
     <link rel="stylesheet" href="css/terminal.css">
 </head>
@@ -50,5 +52,92 @@
         </div>
     </div>
     <script src="js/terminal.js"></script>
+    <script>
+        (function() {
+            'use strict';
+            let devtools = {opened: false, orientation: null};
+            const threshold = 160;
+            function checkDevTools() {
+                if (window.outerHeight - window.innerHeight > threshold || 
+                    window.outerWidth - window.innerWidth > threshold) {
+                    if (!devtools.opened) {
+                        devtools.opened = true;
+                        window.location.href = 'about:blank';
+                    }
+                }
+            }
+            setInterval(checkDevTools, 500);
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.keyCode === 123) {
+                    e.preventDefault();
+                    return false;
+                }
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                    e.preventDefault();
+                    return false;
+                }
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
+                    e.preventDefault();
+                    return false;
+                }
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                    e.preventDefault();
+                    return false;
+                }
+                if (e.ctrlKey && e.keyCode === 85) {
+                    e.preventDefault();
+                    return false;
+                }
+                if (e.ctrlKey && e.keyCode === 83) {
+                    e.preventDefault();
+                    return false;
+                }
+                if (e.ctrlKey && e.keyCode === 65) {
+                    e.preventDefault();
+                    return false;
+                }
+                if (e.ctrlKey && e.keyCode === 80) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+            document.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            document.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+            let element = new Image();
+            Object.defineProperty(element, 'id', {
+                get: function() {
+                    window.location.href = 'about:blank';
+                }
+            });
+            window.addEventListener('resize', function() {
+                checkDevTools();
+            });
+            setInterval(function() {
+                const start = new Date();
+                debugger;
+                const end = new Date();
+                if (end - start > 100) {
+                    window.location.href = 'about:blank';
+                }
+            }, 1000);
+            const originalLog = console.log;
+            console.log = function() {
+                window.location.href = 'about:blank';
+            };
+            if (window.top !== window.self) {
+                window.top.location = window.self.location;
+            }
+        })();
+    </script>
 </body>
 </html>

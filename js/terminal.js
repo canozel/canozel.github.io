@@ -1,4 +1,64 @@
-// TerminalSimulator class for Ubuntu terminal animation
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        console.clear();
+        Object.defineProperty(window, 'console', {
+            get: function() {
+                window.location.href = 'about:blank';
+            },
+            set: function() {
+                window.location.href = 'about:blank';
+            }
+        });
+        function detectDevTools() {
+            const widthThreshold = window.outerWidth - window.innerWidth > 160;
+            const heightThreshold = window.outerHeight - window.innerHeight > 160;
+            if (widthThreshold || heightThreshold) {
+                document.body.innerHTML = '<h1 style="color: red; text-align: center; margin-top: 50vh;">Erişim Engellendi!</h1>';
+                setTimeout(() => {
+                    window.location.href = 'about:blank';
+                }, 1000);
+            }
+        }
+        function performanceDetection() {
+            const start = performance.now();
+            debugger;
+            const duration = performance.now() - start;
+            if (duration > 100) {
+                window.location.href = 'about:blank';
+            }
+        }
+        setInterval(detectDevTools, 200);
+        setInterval(performanceDetection, 1000);
+        if (window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized) {
+            window.location.href = 'about:blank';
+        }
+        let element = new Image();
+        element.__defineGetter__("id", function() {
+            window.location.href = 'about:blank';
+        });
+        let re = /x/;
+        re.toString = function() {
+            window.location.href = 'about:blank';
+        };
+    });
+    document.addEventListener('mousedown', function(e) {
+        if (e.button === 2) {
+            e.preventDefault();
+            return false;
+        }
+    });
+    document.addEventListener('copy', function(e) {
+        e.preventDefault();
+        return false;
+    });
+    const noop = () => {};
+    const methods = ['log', 'debug', 'info', 'warn', 'error', 'table', 'trace', 'dir', 'dirxml', 'group', 'groupCollapsed', 'groupEnd', 'clear', 'count', 'countReset', 'time', 'timeLog', 'timeEnd', 'timeStamp', 'profile', 'profileEnd', 'memory'];
+    methods.forEach(method => {
+        console[method] = noop;
+    });
+})();
+
 class TerminalSimulator {
     constructor() {
         this.commands = [
@@ -49,39 +109,28 @@ class TerminalSimulator {
         this.hasSeenAnimation = localStorage.getItem('terminalAnimationSeen') === 'true';
     }
 
-    // Show all commands and outputs without animation
     showAllCommandsDirectly() {
         this.commands.forEach((cmd, index) => {
-            // Show command line if not the first one
             if (cmd.lineId && cmd.lineId !== 'line1') {
                 document.getElementById(cmd.lineId).style.display = 'block';
             }
-            
-            // Show command text
             document.getElementById(cmd.id).textContent = cmd.command;
-            
-            // Show output
             const outputElement = document.getElementById(cmd.outputId);
             outputElement.style.display = 'block';
             outputElement.innerHTML = `<div class="output">${cmd.output}</div>`;
         });
-        
-        // Show final prompt with cursor
         const finalLine = document.getElementById('final-line');
         finalLine.style.display = 'block';
         finalLine.innerHTML = '<span class="username">canozel</span><span class="prompt">@</span><span class="hostname">ubuntu</span><span class="prompt">:</span><span class="path">~</span><span class="prompt">$ </span><span class="cursor"></span>';
     }typeCommand(commandData, callback) {
-        // Show the line if it's not the first one
         if (commandData.lineId && commandData.lineId !== 'line1') {
             document.getElementById(commandData.lineId).style.display = 'block';
         }
-
-        // Type the command with callback
         const typeIt = new TypeIt(`#${commandData.id}`, {
             speed: this.typeSpeed,
             html: true,
             lifeLike: true,
-            cursor: false, // Disable cursor after typing
+            cursor: false,
             afterComplete: () => {
                 if (callback) callback();
             }
@@ -95,21 +144,15 @@ class TerminalSimulator {
             const outputElement = document.getElementById(commandData.outputId);
             outputElement.style.display = 'block';
             outputElement.innerHTML = `<div class="output">${commandData.output}</div>`;
-            
-            // Show output and next prompt simultaneously (like real Linux)
             if (callback) callback();
-        }, 200); // Reduced delay for more realistic feel
+        }, 200);
     }    executeCommand(index) {
         if (index >= this.commands.length) {
-            // All commands completed, show final prompt with cursor
             setTimeout(() => {
                 const finalLine = document.getElementById('final-line');
                 finalLine.style.display = 'block';
                 finalLine.innerHTML = '<span class="username">canozel</span><span class="prompt">@</span><span class="hostname">ubuntu</span><span class="prompt">:</span><span class="path">~</span><span class="prompt">$ </span><span class="cursor"></span>';
-                
-                // Mark animation as seen
                 localStorage.setItem('terminalAnimationSeen', 'true');
-                  // Setup interactive mode after animation completes
                 setTimeout(() => {
                     this.setupInteractiveMode();
                     this.startEncouragementSystem();
@@ -118,38 +161,28 @@ class TerminalSimulator {
             }, 500);
             return;
         }
-
         const commandData = this.commands[index];
-        
-        // Type command first
         this.typeCommand(commandData, () => {
-            // After typing is complete, show output and next command simultaneously
             this.showOutput(commandData, () => {
-                // Minimal delay before next command (like real Linux)
                 setTimeout(() => {
                     this.executeCommand(index + 1);
                 }, 300);
             });
         });
     }    start() {
-        // Check if user has seen animation before
         if (this.hasSeenAnimation) {
-            // Show all commands directly without animation
             this.showAllCommandsDirectly();
-            // Setup interactive mode after showing commands
             setTimeout(() => {
                 this.setupInteractiveMode();
                 this.startEncouragementSystem();
                 this.addBlinkingPromptEffect();
             }, 100);
         } else {
-            // Run animation as usual
             setTimeout(() => {
                 this.executeCommand(0);
             }, 500);
         }
-    }    // Sarcastic responses for user commands
-    getSarcasticResponse(command) {
+    }    getSarcasticResponse(command) {
         const responses = {
             'ls': [
                 "Hmm, still looking for more folders? I already showed you travels and projects! 😏",
@@ -314,23 +347,17 @@ class TerminalSimulator {
                 "Memory leak detected: You're leaking admiration for this site! 💧"
             ]
         };
-
-        // Check for exact matches first
         const lowerCommand = command.toLowerCase();
         if (responses[lowerCommand]) {
             const responseArray = responses[lowerCommand];
             return responseArray[Math.floor(Math.random() * responseArray.length)];
         }
-
-        // Check for partial matches
         for (let key in responses) {
             if (lowerCommand.includes(key)) {
                 const responseArray = responses[key];
                 return responseArray[Math.floor(Math.random() * responseArray.length)];
             }
         }
-
-        // Default sarcastic response for unknown commands
         const defaultResponses = [
             `"${command}"? That's not a real command! Are you making stuff up? 🤨`,
             `Command not found: ${command}. Maybe try a real command next time? 😏`,
@@ -341,29 +368,20 @@ class TerminalSimulator {
             `Command "${command}" failed: Creativity.exe has stopped working! 💻`,
             `Invalid syntax: "${command}". This is a portfolio, not a terminal! 🖥️`
         ];
-
         return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
     }
-
-    // Handle user input
     setupInteractiveMode() {
         const finalLine = document.getElementById('final-line');
         let isInputMode = false;
         let currentCommand = '';
-
-        // Create hidden input for capturing keystrokes
         const hiddenInput = document.createElement('input');
         hiddenInput.style.position = 'absolute';
         hiddenInput.style.left = '-9999px';
         hiddenInput.style.opacity = '0';
         document.body.appendChild(hiddenInput);
-
-        // Focus hidden input when user clicks on terminal
         document.getElementById('terminal').addEventListener('click', () => {
             hiddenInput.focus();
         });
-
-        // Handle keypress events
         hiddenInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
                 e.preventDefault();
@@ -382,54 +400,35 @@ class TerminalSimulator {
                 this.updatePromptDisplay(currentCommand);
             }
         });
-
-        // Auto-focus hidden input
         hiddenInput.focus();
     }
-
-    // Update the prompt display with current command
     updatePromptDisplay(command) {
         const finalLine = document.getElementById('final-line');
         finalLine.innerHTML = `<span class="username">canozel</span><span class="prompt">@</span><span class="hostname">ubuntu</span><span class="prompt">:</span><span class="path">~</span><span class="prompt">$ </span><span class="command">${command}</span><span class="cursor"></span>`;
-    }    // Execute user command and show sarcastic response
-    executeUserCommand(command) {
-        // Mark that user has learned to type commands
+    }    executeUserCommand(command) {
         localStorage.setItem('userHasTypedCommands', 'true');
-        
         const terminal = document.getElementById('terminal');
         const response = this.getSarcasticResponse(command);
-
-        // Add the command line
         const commandLine = document.createElement('div');
         commandLine.innerHTML = `<span class="username">canozel</span><span class="prompt">@</span><span class="hostname">ubuntu</span><span class="prompt">:</span><span class="path">~</span><span class="prompt">$ </span><span class="command">${command}</span>`;
         terminal.appendChild(commandLine);
-
-        // Add the sarcastic response
         const responseLine = document.createElement('div');
         responseLine.innerHTML = `<div class="output">${response}</div>`;
         terminal.appendChild(responseLine);
-
-        // Add new prompt
         const newPrompt = document.createElement('div');
         newPrompt.id = 'final-line';
         newPrompt.innerHTML = '<span class="username">canozel</span><span class="prompt">@</span><span class="hostname">ubuntu</span><span class="prompt">:</span><span class="path">~</span><span class="prompt">$ </span><span class="cursor"></span>';
         terminal.appendChild(newPrompt);
-
-        // Remove old final line
         const oldFinalLine = document.getElementById('final-line');
         if (oldFinalLine && oldFinalLine !== newPrompt) {
             oldFinalLine.remove();
         }
-
-        // Scroll to bottom
         terminal.scrollTop = terminal.scrollHeight;
-    }// Encourage user to type with hints and prompts
+    }
     startEncouragementSystem() {
-        // Check if user has already typed commands
         if (localStorage.getItem('userHasTypedCommands') === 'true') {
-            return; // User already knows how to use it, no need for hints
+            return;
         }
-
         let hintCount = 0;
         let hintInterval;
         const hints = [
@@ -444,33 +443,24 @@ class TerminalSimulator {
             "🎯 Challenge me with 'rm -rf /' if you dare!",
             "⌨️ The terminal is waiting for your input..."
         ];
-
         const showHint = () => {
-            // Stop showing hints if user has already typed
             if (localStorage.getItem('userHasTypedCommands') === 'true') {
                 if (hintInterval) {
                     clearTimeout(hintInterval);
                 }
                 return;
             }
-
             if (hintCount < hints.length) {
                 const terminal = document.getElementById('terminal');
                 const hintElement = document.createElement('div');
                 hintElement.innerHTML = `<div class="hint">${hints[hintCount]}</div>`;
                 hintElement.style.opacity = '0';
                 hintElement.style.transition = 'opacity 0.5s ease-in-out';
-                
-                // Insert before final line
                 const finalLine = document.getElementById('final-line');
                 terminal.insertBefore(hintElement, finalLine);
-                
-                // Fade in
                 setTimeout(() => {
                     hintElement.style.opacity = '1';
                 }, 100);
-                
-                // Fade out after 3 seconds
                 setTimeout(() => {
                     hintElement.style.opacity = '0';
                     setTimeout(() => {
@@ -479,34 +469,23 @@ class TerminalSimulator {
                         }
                     }, 500);
                 }, 3000);
-                
                 hintCount++;
-                
-                // Schedule next hint
                 if (hintCount < hints.length) {
-                    hintInterval = setTimeout(showHint, 8000); // Show hint every 8 seconds
+                    hintInterval = setTimeout(showHint, 8000);
                 }
             }
         };
-
-        // Start showing hints after 5 seconds of inactivity
         setTimeout(showHint, 5000);
     }
-
-    // Add blinking prompt effect
     addBlinkingPromptEffect() {
         const finalLine = document.getElementById('final-line');
         if (finalLine) {
             finalLine.style.animation = 'pulse 2s infinite';
         }
     }
-
-    // Add typing sound effect simulation
     simulateTypingSounds() {
         let isTyping = false;
-        
         const playTypingSound = () => {
-            // Visual feedback for typing
             const cursor = document.querySelector('.cursor');
             if (cursor) {
                 cursor.style.transform = 'scale(1.2)';
@@ -515,13 +494,9 @@ class TerminalSimulator {
                 }, 100);
             }
         };
-
-        // Override the keydown handler to add typing effects
         const originalKeydownHandler = this.setupInteractiveMode;
         this.setupInteractiveMode = function() {
             originalKeydownHandler.call(this);
-            
-            // Add typing sound visual effect
             const hiddenInput = document.querySelector('input[style*="opacity: 0"]');
             if (hiddenInput) {
                 hiddenInput.addEventListener('input', playTypingSound);
