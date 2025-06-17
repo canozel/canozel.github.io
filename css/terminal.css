@@ -209,15 +209,22 @@ a:hover {
 @media (max-width: 768px) {
     body {
         padding: 10px;
+        overflow: auto;
+        height: auto;
+        min-height: 100vh;
     }
     
     .window {
-        height: calc(100vh - 20px);
-        max-height: calc(100vh - 20px);
+        height: auto;
+        min-height: calc(100vh - 20px);
+        max-height: none;
     }
     
     #terminal {
         padding: 1rem;
         font-size: 12px;
+        overflow-y: visible;
+        height: auto;
+        flex: none;
     }
 }
