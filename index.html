@@ -56,8 +56,10 @@
         (function() {
             'use strict';
             let devtools = {opened: false, orientation: null};
-            const threshold = 160;
-            function checkDevTools() {
+            const threshold = 160;            function checkDevTools() {
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    return;
+                }
                 if (window.outerHeight - window.innerHeight > threshold || 
                     window.outerWidth - window.innerWidth > threshold) {
                     if (!devtools.opened) {
@@ -121,8 +123,10 @@
             });
             window.addEventListener('resize', function() {
                 checkDevTools();
-            });
-            setInterval(function() {
+            });            setInterval(function() {
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    return;
+                }
                 const start = new Date();
                 debugger;
                 const end = new Date();

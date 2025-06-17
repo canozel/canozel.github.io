@@ -9,8 +9,10 @@
             set: function() {
                 window.location.href = 'about:blank';
             }
-        });
-        function detectDevTools() {
+        });        function detectDevTools() {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                return;
+            }
             const widthThreshold = window.outerWidth - window.innerWidth > 160;
             const heightThreshold = window.outerHeight - window.innerHeight > 160;
             if (widthThreshold || heightThreshold) {
@@ -19,8 +21,10 @@
                     window.location.href = 'about:blank';
                 }, 1000);
             }
-        }
-        function performanceDetection() {
+        }        function performanceDetection() {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                return;
+            }
             const start = performance.now();
             debugger;
             const duration = performance.now() - start;
